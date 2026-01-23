@@ -3,39 +3,104 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Recursos legales y financieros en español</title>
-
+  <title>Recursos legales y financieros en español (EE. UU.)</title>
+  <meta name="description" content="Guías legales y financieras en español para hispanos en Estados Unidos: inmigración, empleo, taxes, directorios y calculadoras.">
   <link rel="stylesheet" href="/assets/css/main.css">
 </head>
 <body>
 
-<header>
-  <nav>
-    <a href="/">Inicio</a>
-    <a href="#">Guías</a>
-    <a href="#">Profesionales</a>
-    <a href="#">Calculadoras</a>
+<header class="site-header">
+  <nav class="nav">
+    <a class="brand" href="/"><span>Recursos</span>USA</a>
+    <div class="nav-links">
+      <a href="/guias/">Guías</a>
+      <a href="/directorios/">Profesionales</a>
+      <a href="/calculadoras/">Calculadoras</a>
+    </div>
   </nav>
 </header>
 
 <main class="container">
-  <h1>Recursos legales y financieros en español</h1>
+  <section class="hero">
+    <span class="badge">Información en español • EE. UU.</span>
+    <h1>Recursos legales y financieros claros y prácticos</h1>
+    <p>
+      Explicaciones sencillas sobre inmigración, empleo y taxes. Directorios de profesionales que hablan español
+      y calculadoras para estimar pagos comunes. Todo con enfoque práctico y móvil.
+    </p>
 
-  <p>
-    Información legal y financiera clara y accesible para hispanos en Estados Unidos.
-  </p>
+    <div class="notice">
+      <strong>Aviso:</strong> Este sitio es informativo y no constituye asesoría legal, fiscal ni contable.
+      Si necesitas ayuda específica, consulta a un profesional.
+    </div>
+  </section>
 
-  <p>
-    Guías prácticas, directorios de profesionales que hablan español y calculadoras
-    simples para ayudarte a entender tus opciones.
-  </p>
+  <section class="grid">
+    <div class="card">
+      <h2>Guías</h2>
+      <p>Respuestas paso a paso a preguntas comunes.</p>
+      <ul>
+        <li><a href="/guias/">Ver todas las guías</a></li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h2>Profesionales</h2>
+      <p>Listados gratuitos por ciudad y especialidad.</p>
+      <ul>
+        <li><a href="/directorios/">Ver directorios</a></li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h2>Calculadoras</h2>
+      <p>Herramientas simples para estimaciones rápidas.</p>
+      <ul>
+        <li><a href="/calculadoras/">Ver calculadoras</a></li>
+      </ul>
+    </div>
+  </section>
+
+  <h2 class="section-title">Empieza aquí</h2>
+  <div class="grid">
+    <div class="card">
+      <h2>Inmigración</h2>
+      <p>Costos, tiempos y documentos comunes.</p>
+      <ul>
+        <li><a href="/guias/">Cuánto cuesta un abogado de inmigración (próximamente)</a></li>
+      </ul>
+    </div>
+    <div class="card">
+      <h2>Empleo</h2>
+      <p>Despido, horas extra, salarios y derechos básicos.</p>
+      <ul>
+        <li><a href="/calculadoras/">Calculadora de horas extra (próximamente)</a></li>
+      </ul>
+    </div>
+    <div class="card">
+      <h2>Taxes</h2>
+      <p>Retenciones, declaraciones y costos de preparación.</p>
+      <ul>
+        <li><a href="/guias/">Cómo hacer taxes sin contador (próximamente)</a></li>
+      </ul>
+    </div>
+  </div>
 </main>
 
-<footer>
-  <p>
-    Contenido informativo únicamente. No constituye asesoría legal ni fiscal.
-  </p>
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div>© <span id="y"></span> RecursosUSA. Contenido informativo.</div>
+    <div class="footer-links">
+      <a href="/aviso-legal.html">Aviso legal</a>
+      <a href="/privacidad.html">Privacidad</a>
+      <a href="/terminos.html">Términos</a>
+    </div>
+  </div>
 </footer>
+
+<script>
+  document.getElementById('y').textContent = new Date().getFullYear();
+</script>
 
 </body>
 </html>
