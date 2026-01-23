@@ -1,1 +1,155 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Herramienta de horas extra en California (estimador)</title>
+  <meta name="description" content="Herramienta informativa para estimar pago de horas extra en California. Incluye reglas generales y avisos importantes. No es asesoría legal.">
+  <link rel="stylesheet" href="../assets/css/main.css">
+</head>
+<body>
 
+<header class="site-header">
+  <nav class="nav">
+    <a class="brand" href="/recursos-legales-financieros/"><span>Recursos</span>USA</a>
+    <div class="nav-links">
+      <a href="/recursos-legales-financieros/guias/">Guías</a>
+      <a href="/recursos-legales-financieros/directorios/">Profesionales</a>
+      <a href="/recursos-legales-financieros/calculadoras/">Herramientas</a>
+    </div>
+  </nav>
+</header>
+
+<main class="container">
+  <section class="hero">
+    <span class="badge">Herramienta • California</span>
+    <h1>Herramienta para estimar horas extra en California</h1>
+    <p>
+      Usa esta herramienta informativa para estimar cuánto podrías recibir por horas extra
+      bajo reglas generales de California. Los resultados son aproximados.
+    </p>
+
+    <div class="notice">
+      <strong>Aviso importante:</strong> Esta herramienta es solo informativa y educativa.
+      <strong>No constituye asesoría legal</strong>. Las leyes y regulaciones laborales cambian,
+      y existen excepciones (por ejemplo, empleados exentos, convenios colectivos, ciertas industrias).
+      Verifica siempre las reglas vigentes y consulta a un profesional si tienes dudas.
+    </div>
+  </section>
+
+  <section class="card">
+    <h2>Ingresa tus datos</h2>
+
+    <label><strong>Pago por hora ($)</strong></label>
+    <input type="number" id="rate" placeholder="Ej. 20" style="width:100%; padding:10px; margin:6px 0 12px;">
+
+    <label><strong>Horas trabajadas en el día</strong></label>
+    <input type="number" id="hours" placeholder="Ej. 10" style="width:100%; padding:10px; margin:6px 0 12px;">
+
+    <button onclick="calcular()" style="padding:10px 14px; border-radius:10px; border:1px solid #ccc; cursor:pointer;">
+      Calcular estimación
+    </button>
+  </section>
+
+  <section class="card" id="resultado" style="display:none; margin-top:14px;">
+    <h2>Resultado estimado</h2>
+    <p id="detalle"></p>
+  </section>
+
+  <section class="card" style="margin-top:14px;">
+    <h2>Reglas generales usadas en esta herramienta</h2>
+    <p>
+      Esta estimación se basa en reglas generales comúnmente citadas para empleados <strong>no exentos</strong> en California:
+    </p>
+    <ul>
+      <li>Hasta <strong>8 horas</strong> en un día: pago regular.</li>
+      <li>Más de <strong>8 horas</strong> y hasta <strong>12</strong>: 1.5× el pago regular.</li>
+      <li>Más de <strong>12 horas</strong>: 2× el pago regular.</li>
+    </ul>
+    <p>
+      <strong>Importante:</strong> Estas reglas pueden variar según el tipo de empleo, acuerdos,
+      industria específica o cambios regulatorios. Esta herramienta no sustituye asesoría legal.
+    </p>
+  </section>
+
+  <section class="card" style="margin-top:14px;">
+    <h2>Cuándo esta herramienta puede NO aplicar</h2>
+    <ul>
+      <li>Empleados <strong>exentos</strong> (salaried exempt).</li>
+      <li>Convenios colectivos (uniones).</li>
+      <li>Reglas especiales por industria o puesto.</li>
+      <li>Cambios recientes en la ley o interpretaciones administrativas.</li>
+    </ul>
+    <p>
+      Si tienes dudas sobre tu situación específica, consulta con un abogado laboral
+      o con el Departamento de Trabajo de California.
+    </p>
+  </section>
+
+  <section class="card" style="margin-top:14px;">
+    <h2>Recursos relacionados</h2>
+    <ul>
+      <li>
+        <a href="/recursos-legales-financieros/guias/">
+          Guías sobre empleo y derechos laborales
+        </a>
+      </li>
+      <li>
+        <a href="/recursos-legales-financieros/directorios/">
+          Directorio de abogados laborales que hablan español
+        </a>
+      </li>
+      <li>
+        <a href="/recursos-legales-financieros/guias/cuanto-cuesta-abogado-inmigracion.html">
+          Cuánto cuesta un abogado (guía general)
+        </a>
+      </li>
+    </ul>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div>© <span id="y"></span> RecursosUSA. Contenido informativo.</div>
+    <div class="footer-links">
+      <a href="/recursos-legales-financieros/aviso-legal.html">Aviso legal</a>
+      <a href="/recursos-legales-financieros/privacidad.html">Privacidad</a>
+      <a href="/recursos-legales-financieros/terminos.html">Términos</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('y').textContent = new Date().getFullYear();
+
+  function calcular() {
+    const rate = parseFloat(document.getElementById('rate').value);
+    const hours = parseFloat(document.getElementById('hours').value);
+
+    if (isNaN(rate) || isNaN(hours) || rate <= 0 || hours <= 0) {
+      alert("Por favor ingresa valores válidos.");
+      return;
+    }
+
+    let regularHours = Math.min(hours, 8);
+    let overtimeHours = Math.min(Math.max(hours - 8, 0), 4);
+    let doubleTimeHours = Math.max(hours - 12, 0);
+
+    let total =
+      (regularHours * rate) +
+      (overtimeHours * rate * 1.5) +
+      (doubleTimeHours * rate * 2);
+
+    document.getElementById('detalle').innerHTML =
+      `Pago regular: ${regularHours} h × $${rate.toFixed(2)}<br>
+       Horas extra (1.5×): ${overtimeHours} h<br>
+       Doble tiempo (2×): ${doubleTimeHours} h<br><br>
+       <strong>Total estimado: $${total.toFixed(2)}</strong><br><br>
+       <em>Estimación informativa. Verifica reglas vigentes y excepciones.</em>`;
+
+    document.getElementById('resultado').style.display = "block";
+  }
+</script>
+
+</body>
+</html>
