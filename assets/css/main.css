@@ -280,3 +280,7 @@ input, select, textarea, button { max-width: 100%; }
 .site-header .nav-links a {
   display: inline-block;
 }
+html, body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
