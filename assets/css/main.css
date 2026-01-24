@@ -35,6 +35,20 @@ a:hover{ text-decoration: underline; }
   border-bottom: 1px solid var(--border);
 }
 
+/* ========== GLOBAL MOBILE OVERFLOW FIX ========== */
+html, body { max-width: 100%; overflow-x: hidden; }
+
+/* Make widths behave predictably */
+*, *::before, *::after { box-sizing: border-box; }
+
+/* Any media should never exceed the container */
+img, svg, video, iframe { max-width: 100%; height: auto; }
+
+/* Long strings (URLs, long words) should wrap instead of forcing width */
+p, li, h1, h2, h3, a { overflow-wrap: anywhere; word-break: break-word; }
+
+/* Form elements should never exceed container width */
+input, select, textarea, button { max-width: 100%; }
 .nav{
   display:flex;
   align-items:center;
@@ -44,6 +58,9 @@ a:hover{ text-decoration: underline; }
   max-width: 980px;
   margin: 0 auto;
 }
+
+.container { width: 100%; max-width: 100%; }
+.card { width: 100%; max-width: 100%; }
 
 .brand{
   font-weight: 800;
