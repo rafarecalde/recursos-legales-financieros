@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
-  <!-- Home & Legal -->
   <url>
     <loc>https://recursosusa.com/</loc>
   </url>
+
   <url>
     <loc>https://recursosusa.com/aviso-legal.html</loc>
   </url>
@@ -15,7 +15,6 @@
     <loc>https://recursosusa.com/terminos.html</loc>
   </url>
 
-  <!-- Guías -->
   <url>
     <loc>https://recursosusa.com/guias/</loc>
   </url>
@@ -32,7 +31,6 @@
     <loc>https://recursosusa.com/guias/quien-tiene-derecho-horas-extra.html</loc>
   </url>
 
-  <!-- Directorios -->
   <url>
     <loc>https://recursosusa.com/directorios/</loc>
   </url>
@@ -46,7 +44,6 @@
     <loc>https://recursosusa.com/directorios/contadores-impuestos-houston.html</loc>
   </url>
 
-  <!-- Herramientas / Calculadoras -->
   <url>
     <loc>https://recursosusa.com/calculadoras/</loc>
   </url>
