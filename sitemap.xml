@@ -1,21 +1,63 @@
-<url><loc>https://recursosusa.com/</loc></url>
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
-<url><loc>https://recursosusa.com/aviso-legal.html</loc></url>
-<url><loc>https://recursosusa.com/privacidad.html</loc></url>
-<url><loc>https://recursosusa.com/terminos.html</loc></url>
+  <!-- Home & Legal -->
+  <url>
+    <loc>https://recursosusa.com/</loc>
+  </url>
+  <url>
+    <loc>https://recursosusa.com/aviso-legal.html</loc>
+  </url>
+  <url>
+    <loc>https://recursosusa.com/privacidad.html</loc>
+  </url>
+  <url>
+    <loc>https://recursosusa.com/terminos.html</loc>
+  </url>
 
-<url><loc>https://recursosusa.com/guias/</loc></url>
-<url><loc>https://recursosusa.com/guias/cuanto-cuesta-abogado-inmigracion.html</loc></url>
-<url><loc>https://recursosusa.com/guias/cuanto-cuesta-hacer-impuestos-eeuu.html</loc></url>
-<url><loc>https://recursosusa.com/guias/que-hacer-si-no-me-pagan-horas-extra.html</loc></url>
-<url><loc>https://recursosusa.com/guias/quien-tiene-derecho-horas-extra.html</loc></url>
+  <!-- Guías -->
+  <url>
+    <loc>https://recursosusa.com/guias/</loc>
+  </url>
+  <url>
+    <loc>https://recursosusa.com/guias/cuanto-cuesta-abogado-inmigracion.html</loc>
+  </url>
+  <url>
+    <loc>https://recursosusa.com/guias/cuanto-cuesta-hacer-impuestos-eeuu.html</loc>
+  </url>
+  <url>
+    <loc>https://recursosusa.com/guias/que-hacer-si-no-me-pagan-horas-extra.html</loc>
+  </url>
+  <url>
+    <loc>https://recursosusa.com/guias/quien-tiene-derecho-horas-extra.html</loc>
+  </url>
 
-<url><loc>https://recursosusa.com/directorios/</loc></url>
-<url><loc>https://recursosusa.com/directorios/abogados-inmigracion-houston.html</loc></url>
-<url><loc>https://recursosusa.com/directorios/abogados-laborales-houston.html</loc></url>
-<url><loc>https://recursosusa.com/directorios/contadores-impuestos-houston.html</loc></url>
+  <!-- Directorios -->
+  <url>
+    <loc>https://recursosusa.com/directorios/</loc>
+  </url>
+  <url>
+    <loc>https://recursosusa.com/directorios/abogados-inmigracion-houston.html</loc>
+  </url>
+  <url>
+    <loc>https://recursosusa.com/directorios/abogados-laborales-houston.html</loc>
+  </url>
+  <url>
+    <loc>https://recursosusa.com/directorios/contadores-impuestos-houston.html</loc>
+  </url>
 
-<url><loc>https://recursosusa.com/calculadoras/</loc></url>
-<url><loc>https://recursosusa.com/calculadoras/horas-extra.html</loc></url>
-<url><loc>https://recursosusa.com/calculadoras/horas-extra-california.html</loc></url>
-<url><loc>https://recursosusa.com/calculadoras/salarios-no-pagados.html</loc></url>
+  <!-- Herramientas / Calculadoras -->
+  <url>
+    <loc>https://recursosusa.com/calculadoras/</loc>
+  </url>
+  <url>
+    <loc>https://recursosusa.com/calculadoras/horas-extra.html</loc>
+  </url>
+  <url>
+    <loc>https://recursosusa.com/calculadoras/horas-extra-california.html</loc>
+  </url>
+  <url>
+    <loc>https://recursosusa.com/calculadoras/salarios-no-pagados.html</loc>
+  </url>
+
+</urlset>
