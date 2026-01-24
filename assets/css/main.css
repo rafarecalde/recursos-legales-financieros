@@ -216,3 +216,22 @@ a:hover{ text-decoration: underline; }
     font-size: 14px;
   }
 }
+/* HEADER FIX – DO NOT MOVE */
+.site-header .nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.site-header .nav-links {
+  display: flex;
+  flex-direction: row;
+  gap: 18px;
+  flex-wrap: nowrap;
+  white-space: nowrap;
+}
+
+.site-header .nav-links a {
+  display: inline-block;
+}
