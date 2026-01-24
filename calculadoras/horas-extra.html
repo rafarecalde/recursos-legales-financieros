@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Herramienta para calcular horas extra (estimación) — RecursosUSA</title>
+  <meta name="description" content="Herramienta en español para estimar pago de horas extra en EE. UU. Calcula una estimación por semana con tu tarifa por hora y horas trabajadas." />
+
+  <link rel="stylesheet" href="/assets/css/main.css">
+</head>
+<body>
+
+<header class="site-header">
+  <nav class="nav">
+    <a class="brand" href="/"><span>Recursos</span>USA</a>
+    <div class="nav-links">
+      <a href="/guias/">Guías</a>
+      <a href="/directorios/">Profesionales</a>
+      <a href="/calculadoras/">Herramientas</a>
+    </div>
+  </nav>
+</header>
+
+<main class="container">
+  <div class="card">
+    <div class="pill">Herramienta • Empleo</div>
+
+    <h1>Herramienta para calcular horas extra (estimación)</h1>
+
+    <p class="lead">
+      Esta herramienta te ayuda a estimar cuánto podrías cobrar por horas extra
+      en una semana, usando una regla común: <strong>tiempo y medio (1.5×)</strong>
+      después de 40 horas. Es una estimación informativa (las reglas pueden variar
+      por estado y por tu tipo de empleo).
+    </p>
+
+    <h2>Calculadora</h2>
+
+    <form id="otForm" class="tool">
+      <label>
+        Tarifa por hora (USD)
+        <input id="rate" type="number" inputmode="decimal" step="0.01" min="0" placeholder="Ej: 20" required>
+      </label>
+
+      <label>
+        Horas trabajadas en la semana
+        <input id="hours" type="number" inputmode="decimal" step="0.1" min="0" placeholder="Ej: 50" required>
+      </label>
+
+      <label>
+        Umbral de horas extra (por defecto 40)
+        <input id="threshold" type="number" inputmode="decimal" step="0.1" min="0" value="40" required>
+      </label>
+
+      <label>
+        Multiplicador de horas extra (por defecto 1.5×)
+        <input id="mult" type="number" inputmode="decimal" step="0.1" min="1" value="1.5" required>
+      </label>
+
+      <button type="submit">Calcular</button>
+      <button type="button" id="resetBtn">Borrar</button>
+    </form>
+
+    <div id="results" class="results" style="display:none;">
+      <h3>Resultado (estimación)</h3>
+      <p><strong>Horas regulares:</strong> <span id="regHours"></span></p>
+      <p><strong>Horas extra:</strong> <span id="otHours"></span></p>
+      <p><strong>Pago regular:</strong> $<span id="regPay"></span></p>
+      <p><strong>Pago por horas extra:</strong> $<span id="otPay"></span></p>
+      <p><strong>Total estimado:</strong> $<span id="totalPay"></span></p>
+      <p class="muted" id="noteLine"></p>
+    </div>
+
+    <hr>
+
+    <h2>Cómo usar esta herramienta</h2>
+    <ul>
+      <li>Ingresa tu <strong>tarifa por hora</strong>.</li>
+      <li>Ingresa cuántas <strong>horas trabajaste en la semana</strong>.</li>
+      <li>Deja 40 y 1.5× si estás haciendo una estimación general.</li>
+      <li>Si tu estado tiene otra regla (por ejemplo, horas extra diarias), esta herramienta no reemplaza esa regla, pero te da un punto de partida.</li>
+    </ul>
+
+    <h2>Qué tener en cuenta</h2>
+    <ul>
+      <li>No todos los trabajadores tienen derecho a horas extra (por ejemplo, algunos puestos “exentos”).</li>
+      <li>La “semana laboral” depende de cómo la defina tu empleador.</li>
+      <li>Bonos, comisiones o propinas pueden afectar la tarifa “regular” en algunos casos.</li>
+      <li>Las reglas pueden variar por estado.</li>
+    </ul>
+
+    <h2>Relacionado</h2>
+    <ul class="link-list">
+      <li><a href="/guias/quien-tiene-derecho-horas-extra.html">¿Quién tiene derecho a horas extra?</a></li>
+      <li><a href="/guias/como-se-calculan-horas-extra.html">Cómo se calculan las horas extra</a></li>
+      <li><a href="/guias/que-hacer-si-no-me-pagan-horas-extra.html">Qué hacer si no me pagan horas extra</a></li>
+      <li><a href="/directorios/abogados-laborales-houston.html">Abogados laborales en Houston (español)</a></li>
+    </ul>
+
+    <p class="fineprint">
+      Aviso: Este sitio es informativo y no constituye asesoría legal, fiscal ni contable.
+      Los resultados son aproximados.
+    </p>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-links">
+      <a href="/aviso-legal.html">Aviso legal</a>
+      <a href="/privacidad.html">Privacidad</a>
+      <a href="/terminos.html">Términos</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  function fmt(n) {
+    return (Math.round(n * 100) / 100).toFixed(2);
+  }
+
+  const form = document.getElementById('otForm');
+  const resetBtn = document.getElementById('resetBtn');
+  const results = document.getElementById('results');
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+
+    const rate = parseFloat(document.getElementById('rate').value || 0);
+    const hours = parseFloat(document.getElementById('hours').value || 0);
+    const threshold = parseFloat(document.getElementById('threshold').value || 40);
+    const mult = parseFloat(document.getElementById('mult').value || 1.5);
+
+    const regHours = Math.max(0, Math.min(hours, threshold));
+    const otHours = Math.max(0, hours - threshold);
+
+    const regPay = regHours * rate;
+    const otPay = otHours * rate * mult;
+    const totalPay = regPay + otPay;
+
+    document.getElementById('regHours').textContent = fmt(regHours);
+    document.getElementById('otHours').textContent = fmt(otHours);
+    document.getElementById('regPay').textContent = fmt(regPay);
+    document.getElementById('otPay').textContent = fmt(otPay);
+    document.getElementById('totalPay').textContent = fmt(totalPay);
+
+    document.getElementById('noteLine').textContent =
+      `Cálculo usando umbral ${fmt(threshold)} y multiplicador ${fmt(mult)}×.`;
+
+    results.style.display = 'block';
+  });
+
+  resetBtn.addEventListener('click', function () {
+    form.reset();
+    document.getElementById('threshold').value = 40;
+    document.getElementById('mult').value = 1.5;
+    results.style.display = 'none';
+  });
+</script>
+
+</body>
+</html>
