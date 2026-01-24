@@ -56,6 +56,12 @@ header, nav {
   background: var(--surface);
   border-bottom: 1px solid var(--border);
 }
+@media (max-width: 480px) {
+  .nav-links {
+    width: 100%;
+    justify-content: space-around;
+  }
+}
 
 /* ========== GLOBAL MOBILE OVERFLOW FIX ========== */
 html, body { max-width: 100%; overflow-x: hidden; }
