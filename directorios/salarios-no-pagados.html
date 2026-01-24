@@ -1,0 +1,206 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Herramienta para estimar salarios no pagados — RecursosUSA</title>
+  <meta name="description" content="Herramienta en español para estimar salarios no pagados en EE. UU. Calcula una estimación según tarifa por hora, horas faltantes y número de semanas." />
+
+  <link rel="stylesheet" href="/assets/css/main.css">
+</head>
+<body>
+
+<header class="site-header">
+  <nav class="nav">
+    <a class="brand" href="/"><span>Recursos</span>USA</a>
+    <div class="nav-links">
+      <a href="/guias/">Guías</a>
+      <a href="/directorios/">Profesionales</a>
+      <a href="/calculadoras/">Herramientas</a>
+    </div>
+  </nav>
+</header>
+
+<main class="container">
+  <div class="card">
+    <div class="pill">Herramienta • Empleo</div>
+
+    <h1>Herramienta para estimar salarios no pagados</h1>
+
+    <p class="lead">
+      Esta herramienta te ayuda a estimar cuánto podrías reclamar por <strong>salarios no pagados</strong>
+      (horas que trabajaste pero no te pagaron), usando una estimación sencilla.
+      No reemplaza el análisis legal ni considera todos los factores posibles, pero sirve como punto de partida.
+    </p>
+
+    <h2>Estimador</h2>
+
+    <form id="wageForm" class="tool">
+      <label>
+        Tarifa por hora (USD)
+        <input id="rate" type="number" inputmode="decimal" step="0.01" min="0" placeholder="Ej: 18.50" required>
+      </label>
+
+      <label>
+        Horas no pagadas por semana (promedio)
+        <input id="hoursPerWeek" type="number" inputmode="decimal" step="0.1" min="0" placeholder="Ej: 5" required>
+      </label>
+
+      <label>
+        Número de semanas afectadas
+        <input id="weeks" type="number" inputmode="numeric" step="1" min="0" placeholder="Ej: 12" required>
+      </label>
+
+      <label>
+        ¿Quieres incluir una estimación de horas extra dentro de esas horas?
+        <select id="includeOT">
+          <option value="no" selected>No (solo salario regular)</option>
+          <option value="yes">Sí (estimación simple)</option>
+        </select>
+      </label>
+
+      <div id="otFields" style="display:none;">
+        <label>
+          Multiplicador de horas extra (por defecto 1.5×)
+          <input id="mult" type="number" inputmode="decimal" step="0.1" min="1" value="1.5">
+        </label>
+
+        <label>
+          Porcentaje aproximado de esas horas que serían “horas extra”
+          <input id="otPct" type="number" inputmode="numeric" step="1" min="0" max="100" value="50">
+          <small class="muted">Ejemplo: si la mitad de las horas no pagadas eran horas extra, usa 50%</small>
+        </label>
+      </div>
+
+      <button type="submit">Calcular</button>
+      <button type="button" id="resetBtn">Borrar</button>
+    </form>
+
+    <div id="results" class="results" style="display:none;">
+      <h3>Resultado (estimación)</h3>
+
+      <p><strong>Horas no pagadas (total):</strong> <span id="totalHours"></span></p>
+      <p><strong>Monto estimado:</strong> $<span id="amount"></span></p>
+
+      <div id="otBreakdown" style="display:none;">
+        <p class="muted">
+          Esta estimación incluye una división aproximada entre salario regular y horas extra.
+        </p>
+        <p><strong>Parte regular:</strong> $<span id="regPart"></span></p>
+        <p><strong>Parte horas extra:</strong> $<span id="otPart"></span></p>
+      </div>
+
+      <p class="muted" id="noteLine"></p>
+    </div>
+
+    <hr>
+
+    <h2>Cómo usar esta herramienta</h2>
+    <ul>
+      <li>Ingresa tu tarifa por hora.</li>
+      <li>Ingresa cuántas horas por semana te faltaron (en promedio).</li>
+      <li>Ingresa cuántas semanas pasó esto.</li>
+      <li>Si quieres, agrega una estimación simple de horas extra (opcional).</li>
+    </ul>
+
+    <h2>Qué tener en cuenta</h2>
+    <ul>
+      <li>Los plazos para reclamar varían por estado y por tipo de reclamo.</li>
+      <li>Algunos casos pueden incluir recargos, intereses o daños, dependiendo de la ley aplicable.</li>
+      <li>Si hubo represalias o amenazas por reclamar, documenta todo.</li>
+    </ul>
+
+    <h2>Relacionado</h2>
+    <ul class="link-list">
+      <li><a href="/guias/que-hacer-si-no-me-pagan-horas-extra.html">Qué hacer si no me pagan horas extra</a></li>
+      <li><a href="/calculadoras/horas-extra.html">Herramienta para calcular horas extra (estimación)</a></li>
+      <li><a href="/directorios/abogados-laborales-houston.html">Abogados laborales en Houston (español)</a></li>
+      <li><a href="/directorios/abogados-laborales-miami.html">Abogados laborales en Miami (español)</a></li>
+    </ul>
+
+    <p class="fineprint">
+      Aviso: Este sitio es informativo y no constituye asesoría legal, fiscal ni contable.
+      Los resultados son aproximados.
+    </p>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-links">
+      <a href="/aviso-legal.html">Aviso legal</a>
+      <a href="/privacidad.html">Privacidad</a>
+      <a href="/terminos.html">Términos</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  function fmt(n) {
+    return (Math.round(n * 100) / 100).toFixed(2);
+  }
+
+  const form = document.getElementById('wageForm');
+  const resetBtn = document.getElementById('resetBtn');
+  const results = document.getElementById('results');
+
+  const includeOT = document.getElementById('includeOT');
+  const otFields = document.getElementById('otFields');
+  includeOT.addEventListener('change', () => {
+    otFields.style.display = includeOT.value === 'yes' ? 'block' : 'none';
+  });
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+
+    const rate = parseFloat(document.getElementById('rate').value || 0);
+    const hoursPerWeek = parseFloat(document.getElementById('hoursPerWeek').value || 0);
+    const weeks = parseFloat(document.getElementById('weeks').value || 0);
+
+    const totalHours = hoursPerWeek * weeks;
+
+    let amount = totalHours * rate;
+
+    const otSelected = includeOT.value === 'yes';
+    const otBreakdown = document.getElementById('otBreakdown');
+
+    if (otSelected) {
+      const mult = parseFloat(document.getElementById('mult').value || 1.5);
+      const otPct = parseFloat(document.getElementById('otPct').value || 0) / 100;
+
+      const otHours = totalHours * otPct;
+      const regHours = totalHours - otHours;
+
+      const regPart = regHours * rate;
+      const otPart = otHours * rate * mult;
+
+      amount = regPart + otPart;
+
+      document.getElementById('regPart').textContent = fmt(regPart);
+      document.getElementById('otPart').textContent = fmt(otPart);
+      otBreakdown.style.display = 'block';
+
+      document.getElementById('noteLine').textContent =
+        `Incluye OT aproximado: ${Math.round(otPct * 100)}% a multiplicador ${fmt(mult)}×.`;
+    } else {
+      otBreakdown.style.display = 'none';
+      document.getElementById('noteLine').textContent =
+        `Estimación simple: ${fmt(hoursPerWeek)} horas/semana × ${weeks} semanas × $${fmt(rate)}/hora.`;
+    }
+
+    document.getElementById('totalHours').textContent = fmt(totalHours);
+    document.getElementById('amount').textContent = fmt(amount);
+
+    results.style.display = 'block';
+  });
+
+  resetBtn.addEventListener('click', function () {
+    form.reset();
+    document.getElementById('includeOT').value = 'no';
+    otFields.style.display = 'none';
+    results.style.display = 'none';
+  });
+</script>
+
+</body>
+</html>
