@@ -1,0 +1,224 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Herramienta: estimar último cheque y PTO (vacaciones) — RecursosUSA</title>
+  <meta name="description" content="Herramienta en español para estimar el último cheque (horas ya trabajadas) y posible pago de PTO/vacaciones no usadas. No incluye severance garantizada." />
+  <link rel="stylesheet" href="/assets/css/main.css">
+</head>
+<body>
+
+<header class="site-header">
+  <nav class="nav">
+    <a class="brand" href="/"><span>Recursos</span>USA</a>
+    <div class="nav-links">
+      <a href="/guias/">Guías</a>
+      <a href="/directorios/">Profesionales</a>
+      <a href="/calculadoras/">Herramientas</a>
+    </div>
+  </nav>
+</header>
+
+<main class="container">
+  <div class="card">
+    <div class="pill">Herramienta • Empleo</div>
+
+    <h1>Herramienta para estimar tu último cheque y PTO (vacaciones)</h1>
+
+    <p class="lead">
+      Esta herramienta estima (1) tu <strong>último cheque</strong> por horas ya trabajadas y no pagadas,
+      y (2) un posible pago de <strong>PTO/vacaciones no usadas</strong> si aplica. En EE. UU. el
+      <strong>severance (indemnización)</strong> normalmente <strong>no es automático</strong> — suele depender
+      de contrato, política de la empresa o negociación.
+    </p>
+
+    <h2>Calculadora</h2>
+
+    <form id="finalPayForm" class="tool">
+      <label>
+        Tarifa por hora (USD)
+        <input id="rate" type="number" inputmode="decimal" step="0.01" min="0" placeholder="Ej: 22.50" required>
+      </label>
+
+      <label>
+        Horas trabajadas y no pagadas (último período)
+        <input id="unpaidHours" type="number" inputmode="decimal" step="0.1" min="0" placeholder="Ej: 18" required>
+      </label>
+
+      <label>
+        ¿Tienes PTO/vacaciones no usadas que podrían pagarte?
+        <select id="ptoToggle">
+          <option value="no" selected>No / No estoy seguro</option>
+          <option value="yes">Sí</option>
+        </select>
+      </label>
+
+      <div id="ptoFields" style="display:none;">
+        <label>
+          Horas de PTO/vacaciones no usadas
+          <input id="ptoHours" type="number" inputmode="decimal" step="0.1" min="0" placeholder="Ej: 24">
+          <small class="muted">Si tu empleador maneja PTO en horas, usa ese número.</small>
+        </label>
+
+        <label>
+          ¿A qué tarifa se pagaría el PTO?
+          <select id="ptoRateMode">
+            <option value="same" selected>Mis mismas horas ($/hora)</option>
+            <option value="custom">Otra tarifa</option>
+          </select>
+        </label>
+
+        <div id="ptoCustomRateWrap" style="display:none;">
+          <label>
+            Tarifa para PTO (USD por hora)
+            <input id="ptoCustomRate" type="number" inputmode="decimal" step="0.01" min="0" placeholder="Ej: 20.00">
+          </label>
+        </div>
+      </div>
+
+      <button type="submit">Calcular</button>
+      <button type="button" id="resetBtn">Borrar</button>
+    </form>
+
+    <div id="results" class="results" style="display:none;">
+      <h3>Resultado (estimación)</h3>
+
+      <p><strong>Último cheque (horas trabajadas):</strong> $<span id="wagesAmount"></span></p>
+
+      <div id="ptoResultBlock" style="display:none;">
+        <p><strong>PTO/vacaciones (si aplica):</strong> $<span id="ptoAmount"></span></p>
+      </div>
+
+      <p><strong>Total estimado:</strong> $<span id="totalAmount"></span></p>
+      <p class="muted" id="noteLine"></p>
+    </div>
+
+    <hr>
+
+    <h2>Qué incluye (y qué no)</h2>
+    <ul>
+      <li><strong>Sí incluye:</strong> horas ya trabajadas (salario pendiente).</li>
+      <li><strong>Puede incluir:</strong> PTO/vacaciones no usadas, dependiendo del estado, la política de la empresa y cómo se acumula el PTO.</li>
+      <li><strong>No incluye:</strong> severance/indemnización garantizada (normalmente no es automática en EE. UU.).</li>
+      <li><strong>No incluye:</strong> impuestos, deducciones ni otros ajustes.</li>
+    </ul>
+
+    <h2>Documentos útiles</h2>
+    <ul>
+      <li>Talones de pago y depósitos</li>
+      <li>Registro de horas (foto, app, calendario, mensajes)</li>
+      <li>Política de PTO/vacaciones (manual del empleado)</li>
+      <li>Correo o carta de terminación (si existe)</li>
+    </ul>
+
+    <h2>Relacionado</h2>
+    <ul class="link-list">
+      <li><a href="/calculadoras/salarios-no-pagados.html">Herramienta: estimar salarios no pagados</a></li>
+      <li><a href="/calculadoras/horas-extra.html">Herramienta: calcular horas extra (estimación)</a></li>
+      <li><a href="/guias/que-hacer-si-no-me-pagan-horas-extra.html">Guía: qué hacer si no me pagan</a></li>
+      <li><a href="/directorios/abogados-laborales-houston.html">Directorio: abogados laborales en Houston</a></li>
+    </ul>
+
+    <p class="fineprint">
+      Aviso: Este sitio es informativo y no constituye asesoría legal. Los resultados son aproximados y pueden variar por estado, política del empleador y hechos del caso.
+    </p>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-links">
+      <a href="/aviso-legal.html">Aviso legal</a>
+      <a href="/privacidad.html">Privacidad</a>
+      <a href="/terminos.html">Términos</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  function fmt(n) {
+    return (Math.round(n * 100) / 100).toFixed(2);
+  }
+
+  const form = document.getElementById('finalPayForm');
+  const resetBtn = document.getElementById('resetBtn');
+  const results = document.getElementById('results');
+
+  const ptoToggle = document.getElementById('ptoToggle');
+  const ptoFields = document.getElementById('ptoFields');
+  const ptoRateMode = document.getElementById('ptoRateMode');
+  const ptoCustomRateWrap = document.getElementById('ptoCustomRateWrap');
+
+  ptoToggle.addEventListener('change', () => {
+    const on = ptoToggle.value === 'yes';
+    ptoFields.style.display = on ? 'block' : 'none';
+  });
+
+  ptoRateMode.addEventListener('change', () => {
+    ptoCustomRateWrap.style.display = (ptoRateMode.value === 'custom') ? 'block' : 'none';
+  });
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+
+    const rate = parseFloat(document.getElementById('rate').value || 0);
+    const unpaidHours = parseFloat(document.getElementById('unpaidHours').value || 0);
+
+    const wagesAmount = unpaidHours * rate;
+
+    let ptoAmount = 0;
+    let showPto = false;
+
+    if (ptoToggle.value === 'yes') {
+      const ptoHours = parseFloat(document.getElementById('ptoHours').value || 0);
+
+      let ptoRate = rate;
+      if (ptoRateMode.value === 'custom') {
+        ptoRate = parseFloat(document.getElementById('ptoCustomRate').value || 0);
+      }
+
+      ptoAmount = ptoHours * ptoRate;
+      showPto = (ptoHours > 0 && ptoRate > 0);
+    }
+
+    const total = wagesAmount + (showPto ? ptoAmount : 0);
+
+    document.getElementById('wagesAmount').textContent = fmt(wagesAmount);
+
+    const ptoBlock = document.getElementById('ptoResultBlock');
+    if (showPto) {
+      document.getElementById('ptoAmount').textContent = fmt(ptoAmount);
+      ptoBlock.style.display = 'block';
+    } else {
+      ptoBlock.style.display = 'none';
+    }
+
+    document.getElementById('totalAmount').textContent = fmt(total);
+
+    const note = [];
+    note.push(`Último cheque: ${fmt(unpaidHours)} horas × $${fmt(rate)}/hora.`);
+    if (ptoToggle.value === 'yes') {
+      note.push(showPto ? `PTO incluido en la estimación.` : `PTO seleccionado, pero sin datos suficientes para calcularlo.`);
+    } else {
+      note.push(`PTO no incluido.`);
+    }
+    note.push(`Severance/indemnización no está incluida.`);
+
+    document.getElementById('noteLine').textContent = note.join(' ');
+
+    results.style.display = 'block';
+  });
+
+  resetBtn.addEventListener('click', function () {
+    form.reset();
+    document.getElementById('ptoToggle').value = 'no';
+    ptoFields.style.display = 'none';
+    document.getElementById('ptoRateMode').value = 'same';
+    ptoCustomRateWrap.style.display = 'none';
+    results.style.display = 'none';
+  });
+</script>
+
+</body>
+</html>
