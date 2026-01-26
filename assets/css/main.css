@@ -620,3 +620,15 @@ p{
 .footer-links a:hover{
   color: var(--text);
 }
+.site-header{
+  box-shadow: 0 1px 0 rgba(11,18,32,.06);
+}
+
+.nav-links a{
+  padding: 8px 10px;
+  border-radius: 10px;
+}
+
+.nav-links a:hover{
+  background: rgba(11,18,32,.06);
+}
