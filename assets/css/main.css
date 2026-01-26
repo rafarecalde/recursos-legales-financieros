@@ -284,3 +284,121 @@ html, body {
   max-width: 100%;
   overflow-x: hidden;
 }
+
+/* ================================
+   UI POLISH PATCH (global)
+   Goal: feel more like a "product"
+   Safe to remove if you dislike
+================================ */
+
+/* 1) Base look: app-like background + stronger typography */
+:root{
+  --bg: #f5f6f8;
+  --surface: #ffffff;
+  --text: #111827;
+  --muted: #4b5563;
+  --border: rgba(17,24,39,.10);
+  --shadow: 0 10px 30px rgba(17,24,39,.06);
+  --radius: 14px;
+  --radius-sm: 12px;
+  --maxw: 980px;
+}
+
+html, body { height: 100%; }
+body{
+  background: var(--bg);
+  color: var(--text);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* Links feel cleaner/more modern */
+a{ text-decoration: none; text-underline-offset: 3px; }
+a:hover{ text-decoration: underline; }
+
+/* 2) Create a single “surface” so it feels bigger than a blog
+   This targets common wrappers without needing HTML changes. */
+main, .container, .content, .page, .wrap, .wrapper{
+  max-width: var(--maxw);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* If you have a <main>, this will do most of the magic */
+main{
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  margin-top: 18px;
+  margin-bottom: 18px;
+  padding: 22px;
+}
+
+/* Mobile: clean edge-to-edge (feels like an app) */
+@media (max-width: 720px){
+  main{
+    margin: 0;
+    border-radius: 0;
+    border-left: 0;
+    border-right: 0;
+    padding: 18px 16px;
+  }
+}
+
+/* 3) Typography hierarchy (this alone makes it feel “bigger”) */
+h1{
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 1.08;
+  margin: 0 0 14px;
+}
+h2{
+  font-weight: 750;
+  letter-spacing: -0.01em;
+  line-height: 1.15;
+  margin: 28px 0 12px;
+}
+h3{
+  font-weight: 700;
+  margin: 22px 0 10px;
+}
+p, li{
+  color: var(--muted);
+  line-height: 1.65;
+}
+
+/* 4) Reduce the “everything is a card” vibe globally
+   Targets typical classes; if you don’t have these classes, it won’t do much. */
+.card, .panel, .box, .tile, .module{
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border);
+  box-shadow: none !important;      /* kills heavy template shadows */
+  background: transparent;          /* stops floating-card look */
+}
+
+/* Keep actual interactive cards feeling like cards */
+.directory-card, .listing-card, .tool-card, .calculator-card{
+  background: #fff;
+  box-shadow: 0 6px 18px rgba(17,24,39,.06);
+}
+
+/* 5) Make sections breathe (calm = authority) */
+section{ margin: 0 0 32px; }
+
+/* 6) Disclaimer/notice: still present, but less loud */
+.notice, .disclaimer, .alert, .warning, .legal-notice{
+  background: rgba(245, 158, 11, 0.10);
+  border: 1px solid rgba(245, 158, 11, 0.22);
+  color: #92400e;
+  border-radius: var(--radius-sm);
+  padding: 14px;
+}
+
+/* 7) Mobile nav spillover guard (wrap instead of overflow) */
+nav ul, header nav ul, .nav ul{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 16px;
+}
+nav a, header nav a, .nav a{ white-space: nowrap; }
