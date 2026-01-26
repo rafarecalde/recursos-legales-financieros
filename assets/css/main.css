@@ -693,3 +693,6 @@ body.home section.grid .card a:hover{
     box-shadow: 0 14px 36px rgba(11,18,32,.08);
   }
 }
+.logo img{
+  display: block;
+}
