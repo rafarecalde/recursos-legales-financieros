@@ -632,3 +632,14 @@ p{
 .nav-links a:hover{
   background: rgba(11,18,32,.06);
 }
+.card{
+  border-color: rgba(11,18,32,.08);
+  box-shadow: 0 10px 26px rgba(11,18,32,.06);
+}
+.hero{
+  padding-top: 10px;
+}
+
+.hero p{
+  max-width: 62ch;
+}
