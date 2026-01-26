@@ -402,3 +402,35 @@ nav ul, header nav ul, .nav ul{
   gap: 10px 16px;
 }
 nav a, header nav a, .nav a{ white-space: nowrap; }
+body{
+  background: #f5f6f8;
+}
+
+.site-main{
+  background: #fff;
+  border: 1px solid rgba(17,24,39,.10);
+  border-radius: 14px;
+  box-shadow: 0 10px 30px rgba(17,24,39,.06);
+  max-width: 980px;
+  margin: 18px auto;
+  padding: 22px;
+}
+
+@media (max-width: 720px){
+  .site-main{
+    margin: 0;
+    border-radius: 0;
+    border-left: 0;
+    border-right: 0;
+    padding: 18px 16px;
+  }
+}
+.card{
+  box-shadow: none;
+  border: 1px solid rgba(17,24,39,.10);
+  border-radius: 12px;
+}
+
+.grid{
+  gap: 16px;
+}
