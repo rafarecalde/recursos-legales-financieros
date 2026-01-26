@@ -696,3 +696,13 @@ body.home section.grid .card a:hover{
 .logo img{
   display: block;
 }
+.logo svg{
+  height: 40px;
+  width: auto;
+  display: block;
+}
+@media (min-width: 768px){
+  .logo svg{
+    height: 44px;
+  }
+}
