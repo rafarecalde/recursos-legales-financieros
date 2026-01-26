@@ -1,61 +1,95 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- SITEMAP TEST 840 -->
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset
+  xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
+  <!-- Root -->
   <url>
     <loc>https://recursosusa.com/</loc>
+    <priority>1.0</priority>
   </url>
 
-  <url>
-    <loc>https://recursosusa.com/aviso-legal.html</loc>
-  </url>
-  <url>
-    <loc>https://recursosusa.com/privacidad.html</loc>
-  </url>
-  <url>
-    <loc>https://recursosusa.com/terminos.html</loc>
-  </url>
-
+  <!-- Core sections -->
   <url>
     <loc>https://recursosusa.com/guias/</loc>
-  </url>
-  <url>
-    <loc>https://recursosusa.com/guias/cuanto-cuesta-abogado-inmigracion.html</loc>
-  </url>
-  <url>
-    <loc>https://recursosusa.com/guias/cuanto-cuesta-hacer-impuestos-eeuu.html</loc>
-  </url>
-  <url>
-    <loc>https://recursosusa.com/guias/que-hacer-si-no-me-pagan-horas-extra.html</loc>
-  </url>
-  <url>
-    <loc>https://recursosusa.com/guias/quien-tiene-derecho-horas-extra.html</loc>
+    <priority>0.9</priority>
   </url>
 
   <url>
     <loc>https://recursosusa.com/directorios/</loc>
-  </url>
-  <url>
-    <loc>https://recursosusa.com/directorios/abogados-inmigracion-houston.html</loc>
-  </url>
-  <url>
-    <loc>https://recursosusa.com/directorios/abogados-laborales-houston.html</loc>
-  </url>
-  <url>
-    <loc>https://recursosusa.com/directorios/contadores-impuestos-houston.html</loc>
+    <priority>0.9</priority>
   </url>
 
   <url>
     <loc>https://recursosusa.com/calculadoras/</loc>
+    <priority>0.9</priority>
   </url>
+
+  <!-- Guías -->
+  <url>
+    <loc>https://recursosusa.com/guias/cuanto-cuesta-abogado-inmigracion.html</loc>
+  </url>
+
+  <url>
+    <loc>https://recursosusa.com/guias/como-se-calculan-horas-extra.html</loc>
+  </url>
+
+  <url>
+    <loc>https://recursosusa.com/guias/cuanto-tiempo-tiene-mi-empleador-para-pagarme.html</loc>
+  </url>
+
+  <url>
+    <loc>https://recursosusa.com/guias/cuanto-cuesta-hacer-impuestos-eeuu.html</loc>
+  </url>
+
+  <!-- Calculadoras -->
   <url>
     <loc>https://recursosusa.com/calculadoras/horas-extra.html</loc>
   </url>
+
   <url>
     <loc>https://recursosusa.com/calculadoras/horas-extra-california.html</loc>
   </url>
+
   <url>
     <loc>https://recursosusa.com/calculadoras/salarios-no-pagados.html</loc>
+  </url>
+
+  <!-- Directorios -->
+  <url>
+    <loc>https://recursosusa.com/directorios/abogados-inmigracion-miami.html</loc>
+  </url>
+
+  <url>
+    <loc>https://recursosusa.com/directorios/abogados-inmigracion-houston.html</loc>
+  </url>
+
+  <url>
+    <loc>https://recursosusa.com/directorios/abogados-laborales-miami.html</loc>
+  </url>
+
+  <url>
+    <loc>https://recursosusa.com/directorios/abogados-laborales-houston.html</loc>
+  </url>
+
+  <url>
+    <loc>https://recursosusa.com/directorios/contadores-impuestos-miami.html</loc>
+  </url>
+
+  <url>
+    <loc>https://recursosusa.com/directorios/contadores-impuestos-houston.html</loc>
+  </url>
+
+  <!-- Legal pages -->
+  <url>
+    <loc>https://recursosusa.com/aviso-legal.html</loc>
+  </url>
+
+  <url>
+    <loc>https://recursosusa.com/privacidad.html</loc>
+  </url>
+
+  <url>
+    <loc>https://recursosusa.com/terminos.html</loc>
   </url>
 
 </urlset>
