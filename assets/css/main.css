@@ -684,3 +684,12 @@ body.home section.grid .card a:hover{
   height: 3px;
   background: rgba(29,78,216,.35);
 }
+.notice{
+  max-width: 60ch;
+}
+@media (hover: hover){
+  .card:hover{
+    transform: translateY(-2px);
+    box-shadow: 0 14px 36px rgba(11,18,32,.08);
+  }
+}
