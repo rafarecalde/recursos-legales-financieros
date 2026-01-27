@@ -706,3 +706,5 @@ body.home section.grid .card a:hover{
     height: 44px;
   }
 }
+.logo a { display: inline-flex; align-items: center; }
+.logo svg { height: 34px; width: auto; display: block; }
