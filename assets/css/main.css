@@ -708,3 +708,48 @@ body.home section.grid .card a:hover{
 }
 .logo a { display: inline-flex; align-items: center; }
 .logo svg { height: 34px; width: auto; display: block; }
+.mini-hero{
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+  margin:14px 0 18px;
+}
+.badge{
+  font-size:14px;
+  padding:8px 10px;
+  border:1px solid #e6eaf2;
+  background:#f6f8fc;
+  border-radius:999px;
+  line-height:1;
+}
+
+.link-grid{
+  display:grid;
+  grid-template-columns: 1fr;
+  gap:12px;
+  margin-top:12px;
+}
+.link-card{
+  display:block;
+  padding:14px 14px;
+  border:1px solid #e6eaf2;
+  background:#fff;
+  border-radius:14px;
+  text-decoration:none;
+}
+.link-card:hover{
+  border-color:#cfd8ee;
+  box-shadow:0 6px 20px rgba(0,0,0,0.06);
+}
+.link-title{
+  font-weight:800;
+  color:#111827;
+  margin-bottom:4px;
+}
+.link-subtitle{
+  color:#6b7280;
+  font-size:14px;
+}
+.link-card:active{
+  transform: scale(0.99);
+}
