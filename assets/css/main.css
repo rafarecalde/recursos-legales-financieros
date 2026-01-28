@@ -772,7 +772,7 @@ body.home section.grid .card a:hover{
 .cred-panel{
   margin: 20px 0 22px;
   padding: 14px 16px;
-  border-left: 4px solid #1d4ed8;
+  border-left: 3px solid #3b82f6;
   background: #f8fafc;
 }
 
@@ -797,4 +797,9 @@ body.home section.grid .card a:hover{
   border: 1px solid #e6eaf2;
   color: #374151;
   font-size: 14px;
+}
+@media (max-width: 640px){
+  .cred-panel{
+    padding: 12px 14px;
+  }
 }
