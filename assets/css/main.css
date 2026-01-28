@@ -791,3 +791,10 @@ body.home section.grid .card a:hover{
 .cred-panel li:last-child{
   margin-bottom: 0;
 }
+.notice--footer{
+  margin-top: 22px;
+  background: #f9fafb;
+  border: 1px solid #e6eaf2;
+  color: #374151;
+  font-size: 14px;
+}
