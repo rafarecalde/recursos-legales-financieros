@@ -803,3 +803,17 @@ body.home section.grid .card a:hover{
     padding: 12px 14px;
   }
 }
+.card-link{
+  display:block;
+  text-decoration:none;
+  color:inherit;
+}
+
+.card-link:hover{
+  border-color:#cfd8ee;
+  box-shadow:0 6px 20px rgba(0,0,0,0.06);
+}
+
+.card-link h2{
+  margin-top:0;
+}
