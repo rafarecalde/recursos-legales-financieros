@@ -824,3 +824,12 @@ body.home section.grid .card a:hover{
   color: #1d4ed8;
   letter-spacing: 0.02em;
 }
+.hero-rotating {
+  min-height: 70vh;
+  background-size: cover;
+  background-position: center;
+  transition: background-image 1.2s ease-in-out;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
