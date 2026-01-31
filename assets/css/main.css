@@ -939,3 +939,30 @@ body.home section.grid .card a:hover{
   border-radius: 14px;
   padding: 16px 18px;
 }
+.home .hero-rotating {
+  padding: 48px 16px 64px;
+}
+
+.home .hero-rotating h1 {
+  max-width: 18ch;          /* tighter headline */
+  margin-bottom: 12px;
+}
+
+.home .hero-rotating p {
+  max-width: 44ch;          /* keeps paragraph compact */
+  margin-bottom: 10px;
+}
+.home .hero-rotating p {
+  font-size: 1rem;
+  line-height: 1.45;
+}
+@media (max-width: 480px) {
+  .home .hero-rotating p {
+    font-size: 0.95rem;
+  }
+}
+.hero-tags {
+  margin-top: 14px;
+  font-size: 0.9rem;
+  opacity: 0.85;
+}
