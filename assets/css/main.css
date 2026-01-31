@@ -879,3 +879,10 @@ body.home section.grid .card a:hover{
   padding: 16px 20px;
   border-radius: 12px;
 }
+/* Full-bleed hero (edge to edge) */
+.home .hero-rotating {
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+  border-radius: 0;
+}
