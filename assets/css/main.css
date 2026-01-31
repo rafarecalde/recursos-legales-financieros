@@ -870,6 +870,9 @@ body.home section.grid .card a:hover{
 .hero .eyebrow {
   color: rgba(255, 255, 255, 0.9);
 }
+.hero h1 {
+  font-weight: 800;
+}
 .cred-panel {
   background: #ffffff;
   margin-top: 24px;
