@@ -853,3 +853,8 @@ body.home section.grid .card a:hover{
   position: relative;
   z-index: 2;
 }
+@media (max-width: 768px) {
+  .hero-rotating {
+    min-height: 60vh;
+  }
+}
