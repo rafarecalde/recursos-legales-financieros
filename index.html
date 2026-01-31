@@ -13,6 +13,26 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/main.css">
 </head>
+<script>
+  const heroImages = [
+    "/assets/img/hero-family-1.jpg",
+    "/assets/img/hero-community-2.jpg",
+    "/assets/img/hero-work-3.jpg"
+  ];
+
+  let currentHero = 0;
+  const hero = document.querySelector(".hero-rotating");
+
+  function rotateHero() {
+    if (!hero) return;
+    hero.style.backgroundImage = `url('${heroImages[currentHero]}')`;
+    currentHero = (currentHero + 1) % heroImages.length;
+  }
+
+  rotateHero();
+  setInterval(rotateHero, 6000);
+</script>
+
 <body class="home">
 <header class="site-header">
   <div class="nav">
