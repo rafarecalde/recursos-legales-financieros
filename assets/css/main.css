@@ -933,3 +933,9 @@ body.home section.grid .card a:hover{
 .home .hero-rotating .eyebrow{
   text-shadow: 0 2px 18px rgba(0,0,0,0.35);
 }
+.cred-panel{
+  margin-top: 18px;
+  background: #fff;
+  border-radius: 14px;
+  padding: 16px 18px;
+}
