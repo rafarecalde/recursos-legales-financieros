@@ -1,4 +1,4 @@
-/* Main stylesheet — clean, fast, mobile-first */
+p/* Main stylesheet — clean, fast, mobile-first */
 
 :root{
   --bg: #f7f7f8;
@@ -885,4 +885,8 @@ body.home section.grid .card a:hover{
   margin-left: calc(50% - 50vw);
   margin-right: calc(50% - 50vw);
   border-radius: 0;
+}
+.hero-rotating {
+  padding-left: max(16px, env(safe-area-inset-left));
+  padding-right: max(16px, env(safe-area-inset-right));
 }
