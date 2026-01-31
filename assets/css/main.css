@@ -861,3 +861,12 @@ body.home section.grid .card a:hover{
     min-height: 60vh;
   }
 }
+.hero h1 {
+  color: #ffffff;
+}
+
+.hero p,
+.hero .hero-tags,
+.hero .eyebrow {
+  color: rgba(255, 255, 255, 0.9);
+}
