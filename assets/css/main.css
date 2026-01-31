@@ -833,3 +833,23 @@ body.home section.grid .card a:hover{
   flex-direction: column;
   justify-content: center;
 }
+.hero-rotating {
+  position: relative;
+  min-height: 70vh;
+  background-size: cover;
+  background-position: center;
+}
+
+.hero-rotating::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.82);
+  z-index: 1;
+}
+
+/* Make sure hero content sits above the overlay */
+.hero-rotating > * {
+  position: relative;
+  z-index: 2;
+}
