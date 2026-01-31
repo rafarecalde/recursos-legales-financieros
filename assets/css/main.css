@@ -966,3 +966,7 @@ body.home section.grid .card a:hover{
   font-size: 0.9rem;
   opacity: 0.85;
 }
+/* HERO IMAGE CROP CONTROL */
+.home .hero-rotating {
+  background-position: 50% 20%;
+}
