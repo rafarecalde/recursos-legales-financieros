@@ -890,3 +890,46 @@ body.home section.grid .card a:hover{
   padding-left: max(16px, env(safe-area-inset-left));
   padding-right: max(16px, env(safe-area-inset-right));
 }
+.home .hero-rotating{
+  background-size: cover;
+  background-position: 50% 25%; /* << key: moves the crop up/down */
+  background-repeat: no-repeat;
+}
+.home .hero-rotating{
+  padding: 56px 16px 88px;  /* top / sides / bottom */
+}
+
+.home .hero-rotating h1{
+  max-width: 20ch;          /* nicer line breaks */
+}
+
+.home .hero-rotating p{
+  max-width: 52ch;
+}
+.home .hero-rotating{
+  position: relative;
+  color: #fff;
+}
+
+.home .hero-rotating::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background: linear-gradient(
+    to bottom,
+    rgba(0,0,0,0.72),
+    rgba(0,0,0,0.52) 45%,
+    rgba(0,0,0,0.58)
+  );
+  z-index:1;
+}
+
+.home .hero-rotating > *{
+  position: relative;
+  z-index: 2;
+}
+.home .hero-rotating h1,
+.home .hero-rotating p,
+.home .hero-rotating .eyebrow{
+  text-shadow: 0 2px 18px rgba(0,0,0,0.35);
+}
