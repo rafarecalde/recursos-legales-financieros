@@ -838,17 +838,20 @@ body.home section.grid .card a:hover{
   min-height: 70vh;
   background-size: cover;
   background-position: center;
+  color: #ffffff;
 }
 
 .hero-rotating::before {
   content: "";
   position: absolute;
   inset: 0;
-  background: rgba(255, 255, 255, 0.82);
+  background: linear-gradient(
+    rgba(0, 0, 0, 0.55),
+    rgba(0, 0, 0, 0.55)
+  );
   z-index: 1;
 }
 
-/* Make sure hero content sits above the overlay */
 .hero-rotating > * {
   position: relative;
   z-index: 2;
