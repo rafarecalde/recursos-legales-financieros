@@ -970,3 +970,29 @@ body.home section.grid .card a:hover{
 .home .hero-rotating {
   background-position: 50% 20%;
 }
+/* Mobile portrait tuning for hero */
+@media (max-width: 540px) {
+
+  .home .hero-rotating{
+    min-height: 52vh;                 /* shorter hero so it doesn't feel like a billboard */
+    padding: 40px 16px 48px;          /* less vertical padding */
+    background-position: 50% 10%;     /* less "tight" crop on faces */
+  }
+
+  .home .hero-rotating h1{
+    max-width: 16ch;                  /* better line breaks */
+    font-size: clamp(28px, 7vw, 36px);
+    line-height: 1.05;
+  }
+
+  .home .hero-rotating p{
+    max-width: 36ch;                  /* keeps paragraph from spanning too wide */
+    font-size: 0.95rem;
+    line-height: 1.45;
+  }
+
+  .home .hero-tags{
+    font-size: 0.88rem;
+    opacity: 0.9;
+  }
+}
